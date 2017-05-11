@@ -64,10 +64,28 @@ Sharing WIP
    - just type "now"
 
 Automation
-- Gulp
-- Grunt
+- Gulp 
+  - focuses on in-memory streams (pipes), 
+  - faster than grunt, 
+  - code over configuration, 
+  -large plugin ecosystem
+- Grunt 
+  - Configuration over code, 
+  - writes intermediate files between steps, 
+  - large plugin ecosystem
+  
 - NPM Scripts
-
+  - declared in script section of package.json
+  - leverage OS command line
+  - directly use NPM packages
+  - offers convention based pre/post hooks
+  - advantages:
+    - use tools directly
+    - no need for separate plugins
+    - simpler debugging
+    - better docs
+    - easy to learn and simple
+    - see bit.ly/npmvsgulp
 Module Format 
 - ES6 Modules, CommonJS, etc
 
