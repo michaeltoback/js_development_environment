@@ -5,9 +5,39 @@ This is based on the pluralsight "Build a JavaScript Development Environment Cou
 
 Editor
 - which one
+ - Atom
+ - WebStorm
+ - Brackets 
+ - VsCode
 - plugins
 - use built in terminal?
-- config
+- config using EditorConfig
+
+Package Management
+- Bower
+- Jam
+- NPM
+- JSPM
+- Volo
+
+Development Webservers
+- HTTPServer
+- Budo
+- Live Server
+- DevPack WebServer
+- Express
+- BrowserSync
+
+Sharing WIP
+- LocalTunnel
+- NGrok
+- Surge
+- Now
+
+Automation
+- Gulp
+- Grunt
+- NPM Scripts
 
 Module Format 
 - ES6 Modules, CommonJS, etc
@@ -23,12 +53,24 @@ Transpiling
 - Use experimental features?
 - Which plugins
 - Production vs dev config
+- Transpilers
+  - Babel
+  - TypeScript
+  - Elm
 
 Bundler 
-- Webpack, Browserfy, Rollup, etc
+- Webpack
+- Browserfy
+- Rollup
+- JSPM
+
+
 
 Linting
 - Which linter
+  - JSLint
+  - JSHint
+  - ESLint
 - Enable which rules
 - Set warnings or errors
 - which plugin
@@ -36,14 +78,21 @@ Linting
 
 Testing
 - Framework?
-- Assertion library?
-- Helpers?
-- Test File Location?
+- Assertion library
+- Helper Libraries
+- Test File Location
+- When To Run Tests
 - File Naming Convention?
 - What environment?
 - Mocking?
 - Code Coverage
 - Continuous Integration
+  - Jenkins
+  - Travis
+  - Appveyor
+  - CircleCI
+  - Semaphore
+  - SnapCI
 
 Project Structure
 - By file type? Feature Type?
@@ -56,6 +105,20 @@ HTTP
 - Mock schema format
 - Mock data generation
 - Mock server
+- Call Approaches
+  - Node
+    - HTTP
+    - Request
+  - Browser
+    - XmlHttpRequest
+    - JQuery
+    - Fetch
+  - Node and Browser
+    - isomorphic fetch
+    - xhr
+    - SuperAgent
+    - Axios
+    
 
 Production build
 - Minification
