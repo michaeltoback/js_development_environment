@@ -31,20 +31,37 @@ Package Management
 - NPM - defacto standard for package managers
 - JSPM - Javascript Package Manager - allows install of packages from its own list of package repositories as well as other locations such as github, NPM and Bower. It also does bundling and so is recommended in that step
 - Volo
-
+- Security Scanning
+Anyone can put anything into the node library. It's a good idea to scan for security issues.
+  - retire.js
+  - Node Security Platform - call "nsp check" as part of your build to scan for vulnerabilities
+  - Add check as part of start script; running manually easy to forget, running as part of install may not catch issues on updates, and running as part of production build is expensive to change
 Development Webservers
-- HTTPServer
-- Budo
-- Live Server
-- DevPack WebServer
-- Express
-- BrowserSync
+- http-server - ultra simple. single command serves current directory
+- Budo - integrates with browserfy for bundling, includes hot reloading
+- Live Server - lightweight, adds live reloading
+- WebPack WebServer - integrates with WebPack bundler, serves from memory, includes hot reloading
+- Express - comprehensive, highly configurable, only option that can also be used as a production server; common configuration, can run everywhere
+- BrowserSync - useful for cross-device testing of browsers of different sizes, devices.  Great way to share, but does not expose a public IP outside your network. Integrates with Browserfy, Webpack, Express, and Gulp
 
 Sharing WIP
-- LocalTunnel
-- NGrok
-- Surge
-- Now
+- LocalTunnel - easily share work on your local machine
+  - install localtunnel globally
+  - start your app
+  - lt --port <port_number>
+- NGrok - More sophisticated than localtunnel but requires more configuration, you can password protect access
+  - sign up
+  - install ngrok
+  - install authtoken
+  - start your app
+  - ./ngrok http <port_number>
+- Surge - Assumes app is static files (html, js, and css), push files to surge then get a public IP
+  - install surge globally
+  - type "surge"
+- Now - easy to deploy application to the cloud instead of punching a hole in your firewall
+   - install now
+   - create start script
+   - just type "now"
 
 Automation
 - Gulp
