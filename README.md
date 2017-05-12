@@ -113,12 +113,52 @@ Transpiling
     }
 
 Bundler 
+- five different module formats
+  - Immediately Invoked Function Expressions (IIFE)
+    - Encapsulates Java script, eliminates global variables
+  - Asynchronous Module Definition (AMD)
+  - CommonJS (CJS) - Node Standard, but doesn't work for browsers
+  - Universal Module Definition (UMD)
+  - ES6 Modules - Standard format going forward
+    - Standardized
+    - Statically analyzable
+    - improved autocompletion support
+    - intelligent refactoring
+    - code fails fast, in a quicker manner
+    - tree shaking - finding unused code 
+
+Node CommonJS format does not work in browsers
+
+You may also want to package project into files
+- Require.JS - first popular bundler, generates AMD format
 - Webpack
-- Browserfy
+  - huge ecosystem of loaders (CSS, Images, Fonts, HTML), not just JS
+  - Strategic bundle splitting
+  - Hot module reloading
+  - Webpack 2 offers tree shaking (they are on 2.5.1 now!)
+  - used by majority of users
+  - This is what we will use, Joe Eames has a separate course on Webpack
+- Browserify
+  - First bundler to get mass adoption
+  - bundles NPM packages for the web
+  - Large plugin ecosystem
 - Rollup
+  - tree shaking - eliminates code you're not using from the final bundle
+  - faster loading production code
+  - quite new, so less examples
+  - no hot reloading or code spitting (yet)
+  - good choice if you are building a library
 - JSPM
+  - Uses SystemJS, a univeral module loader
+  - supports loading modules at runtime
+  - has its own package manager
+  - Uses rollup so you get its' tree shaking benefits as well
+  - can load modules from npm 
 
-
+Sourcemaps
+- Allows one to debug transpiled and bundled code
+- Maps code back to original source
+- part of the build process
 
 Linting
 - Which linter
