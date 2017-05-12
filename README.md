@@ -101,9 +101,16 @@ Transpiling
 - Which plugins
 - Production vs dev config
 - Transpilers
-  - Babel
+  - Babel - will use this
   - TypeScript
   - Elm
+- can setup either .babelrc file or babel section in package.json
+- setting up babelrc with the following will get the latest standard es6 features:
+    {
+       "presets" : [
+           "latest"
+       ]
+    }
 
 Bundler 
 - Webpack
