@@ -25,6 +25,7 @@ Editor
   - http://editorconfig.org/
   - many editors have support built in, like webstorm
   - others like Atom, brackets, and VSCode have plugins for support
+  
 Package Management
 - Bower - Allows you to skip build, but irrelevant because most projects have build steps
 - Jam
@@ -36,6 +37,7 @@ Anyone can put anything into the node library. It's a good idea to scan for secu
   - retire.js
   - Node Security Platform - call "nsp check" as part of your build to scan for vulnerabilities
   - Add check as part of start script; running manually easy to forget, running as part of install may not catch issues on updates, and running as part of production build is expensive to change
+  
 Development Webservers
 - http-server - ultra simple. single command serves current directory
 - Budo - integrates with browserfy for bundling, includes hot reloading
@@ -161,33 +163,131 @@ Sourcemaps
 - part of the build process
 
 Linting
+- why?
+  - enforce consistency
+    - curly brace position
+    - prevent use of features team has decided to avoid
+  - avoid mistakes
+    - adding extra parenthesis
+    - overwriting function
+    - assignment in a conditional when you meant to do a comparision
+    - missing default case in switch
+    - leaving debugger/console.log in your code
 - Which linter
-  - JSLint
-  - JSHint
-  - ESLint
-- Enable which rules
+  - JSLint - original linter for JS. It's opinionated and not very configuration
+  - JSHint - better because of configurability
+  - ESLint - Best, no good reason to choose the others
+  
+  Except! None of the above linters work with TypeScript, so for that you'll have to use TSLint
+  
+  
+- What configuration format to use? 
+  - either a dedicated .eslintrc.json file 
+  - or inside package.json ("eslintConfig" section)
+- Enable which rules - get together as a team and agree on it
 - Set warnings or errors
-- which plugin
+  - warnings
+    - can continue development
+    - can be ignored
+    - team must agree to fix
+  - errors
+    -Breaks the build 
+    - cannot be ignored
+- which plugins
+  - depends on what you are doing
+  - eslint-plugin-x
+    - react
+    - angular
+    - node
+  - List available at "Awsome ESLint"
+  (github/dustinspecker/awesome-eslint)
 - use a preset?
-
+many options
+  - start from scratch
+  - Use ESLint's recommended list then tweak
+  - use an existing set of rules like AirBnB, XO or standard JS
+- issues
+  - ESLint doesn't watch files
+    - use eslint-loader in webpack everytime you hit save and build
+    - use eslint-watch 
+      - stands alone and isn't tied to any bundler
+      - better warning messages
+      - can lint all files, even if they are not being bundled
+  - ESLint does not support many experimental features
+    - supports ES6 and ES7 features natively
+    - also supports object spread
+    - use babel-eslint instead otherwise, as it support stage 0-4 features
+- why lint during an automated build?
+  - one place to check
+  - universal configuration
+  - part of continuous integration
+- if you use automated linting, need to disable linting in your editor to prevent overriding
+  
 Testing
 - Framework?
+  - Mocha - more configurable, mature, flexible and large ecosystem of support
+  - Jasmine  - includes its' own assertion library
+  - Tape - leanest and simplest
+  - qUnit - for testing jQuery
+  - AVA - parallel testing and only runs impacted tests
+  - Jest - wrapper over Jasmine includes code coverage, JSDom and popular conventions for finding test files built in
+  - Any of these frameworks will work!
 - Assertion library
+  - a way to declare what you expect from the test
+  - chai - popular and offers an array of assertion styles to choose from
+  - should.js
+  - expect
+  - need one for mocha since it doesn't include one
 - Helper Libraries
-- Test File Location
+  - JSDom - Can run tests that rely on the dom without opening an actual browser
+  - Cheerio - jQuery for the server; query virtual DOM using jQuery selectors
+  - 
+- Test File support
+  - testing in a browser - Karma, Testem
+  - testing in a headless browser - PhantomJS
+  - In memory DOM - JSDOM 
 - When To Run Tests
+  - unit tests should run whenever you hit save
+  - rapid feedback
+  - facilitates TDD
+  - Automatic = Low Friction
+  - increases visibility of existing tests
+- Test File Location
+  - Alongside is better because it's easy to remove files from deliverables
+  - easy imports
+  - clear visibility
+  - convenient to open
+  - no need to recreate folder structures
+  - easier to refactor and move files
 - File Naming Convention?
+  - file.spec.js
+  - file.test.js
 - What environment?
 - Mocking?
 - Code Coverage
 - Continuous Integration
-  - Jenkins
-  - Travis
-  - Appveyor
-  - CircleCI
-  - Semaphore
-  - SnapCI
-
+  - why?
+    - Forgot to commit a new file
+    - Forgot to update package.json
+    - commit doesn't run cross-platform
+    - node version conflicts
+    - bad merge
+    - didn't run tests
+    - summary: It catches developer mistakes quickly
+  - what does a CI server do?
+    - run automated build
+    - run your tests
+    - check code coverage
+    - automated deployment
+  - which CI Server?     
+    - Jenkins - popular and highly configurable, available for download
+    - Travis - Linux based server and popular, hosted
+    - Appveyor - windows based server
+    - CircleCI
+    - Semaphore
+    - SnapCI
+    - setup two... travis for linux and appveyor for windows, get multiple platform coverage
+    - setup for travisCI... login to travisCI with your github account, and select the repo associated with the project you want to run CI on. Setup .travis.yml file
 Project Structure
 - By file type? Feature Type?
 - centralized API?
