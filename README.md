@@ -296,23 +296,52 @@ Project Structure
 
 HTTP
 - Library
-- Mock schema format
+- Mock API
+  - Unit testing
+  - instant response
+  - keep working when services are down
+  - rapid prototyping
+  - avoid interteam bottlenecks
+  - allow work offline
+- Mock Frameworks
+  - Nock
+  - static HTTP
+  - create Development Webserver
+    - api-mock
+    - JSON Server
+    - BrowserSync or Express
+- Mock schema format- JSON Schema Faker
 - Mock data generation
 - Mock server
+- Mock Plan
+  - Declare Mock Schema using JSON Schema Faker
+  - Generate Random Data using
+    - faker.js
+    - chance.js
+    - randexp.js
+  - check out JSON Schema repl online to see how it produces random data
+  - Serve Data via API
+    - JSON Server
+  
 - Call Approaches
   - Node
     - HTTP
-    - Request
+    - Request - good if you're only working on node
   - Browser
-    - XmlHttpRequest
-    - JQuery
-    - Fetch
+    - XmlHttpRequest - manually check ready state, verbose
+    - JQuery - $ajax logical way to handle http calls
+    - framework-based like angular
+    - Fetch - streamlined, so not feature rich - has polyfill if needed
   - Node and Browser
-    - isomorphic fetch
-    - xhr
-    - SuperAgent
-    - Axios
-    
+    - isomorphic fetch - fetch-like API 
+    - xhr - subset of request library run on both node and browser
+    - SuperAgent - full feature
+    - Axios - full feature
+  - centralize API calls
+    - configure all calls
+    - handle preloader logic
+    - handle errors
+    - single seam for mocking
 
 Production build
 - Minification
