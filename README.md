@@ -387,3 +387,16 @@ Starter App
   - Automated Build
   - Automated Deployment
   - Working Example App - to show how all of this comes together including directory structure and file name practices
+
+  Production build
+  - minification - about speeding pageloads and saving bandwidth
+    - shorten variable and function names
+    - remove comments
+    - remove whitespace and newlines
+    - some use tree shaking to remove dead code
+    - can still debug using source maps
+  - sourcemaps
+  - Dynamic HTML
+  - cache busting
+  - bundle splitting
+  - error logging
