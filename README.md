@@ -354,20 +354,36 @@ The checklist Manifesto - Atul Gawande
 
 Frameworks can be very opinionated, like ember, not as opinionated like angular or unopinionated, like Node or React
 
-What belongs in the starter kit?
-- Package Management
-- Bundling
-- Minification
-- Sourcemaps
-- Transpiling
-- Dynamic HTML Generation
-- Centralized HTTP requests
-- Mock API Framework
-- Component Libraries
-- Development Webserver
-- Linting
-- Automated Testing
-- Continuous Integration
-- Automated Build
-- Automated Deployment
-- Working Example App - to show how all of this comes together including directory structure and file name practices
+Starter App
+- why a starter app
+  - examples of Directory structure and file naming
+  - examples of framework usage
+  - examples of testing
+  - examples of mock api
+  - example of automated deployment
+  - codifies decisions
+  - interactive example of teh starter kit working in a real scenario
+- tips to build app
+  - javascript belongs in a js file, not embedded in html
+    - you can't test, lint, reuse or transpile it!
+    - cannot import explicit dependencies
+    - use configuration object pattern to inject JSON into html script, not custom javascript
+  - organize larger projects by feature
+  - extract as much logic as possible in "Plain Old Javascript Objects", no framework-specific code
+- What belongs in the starter kit?
+  - Package Management
+  - Bundling
+  - Minification
+  - Sourcemaps
+  - Transpiling
+  - Dynamic HTML Generation
+  - Centralized HTTP requests
+  - Mock API Framework
+  - Component Libraries
+  - Development Webserver
+  - Linting
+  - Automated Testing
+  - Continuous Integration
+  - Automated Build
+  - Automated Deployment
+  - Working Example App - to show how all of this comes together including directory structure and file name practices
