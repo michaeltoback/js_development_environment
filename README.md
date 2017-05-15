@@ -397,6 +397,12 @@ Starter App
     - can still debug using source maps
   - sourcemaps
   - Dynamic HTML
+    - hardcoding references
+    - manipulate html via node
+    - html-webpack-plugin
   - cache busting
   - bundle splitting
+    - speed initial page load
+    - avoid redownloading all libraries
+    - so split application code from third party libraries
   - error logging
