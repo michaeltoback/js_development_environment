@@ -2,3 +2,4 @@ node_modules
 .project
 npm-debug.log
 src/api/db.json
+dist/**

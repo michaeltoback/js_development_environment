@@ -406,3 +406,28 @@ Starter App
     - avoid redownloading all libraries
     - so split application code from third party libraries
   - error logging
+    - TrackJS - Specific to javascript
+    - Sentry
+    - New Relic - broader than javascript
+    - Raygun
+   - error metadata
+     - browser used
+     - stacktrace
+     - previous action logging
+     - custom api for enhanced tracking
+     - Notifications and Integrations
+     - Analytics and filtering
+     - pricing - all costs $
+   - turn off error logging using conditional logic
+     - use templating supported by webpack plugin
+     - by default it uses embedded JS (EJS)
+     - store TrackJS token in webpack production config
+     - wrap in if statement that looks for token in htmlWebpackPlugin.options
+     - pass in token from plugin options above
+       <% if (htmlWebpackPlugin.options.trackJSToken) { %>
+       <!-- BEGIN TRACKJS -->
+       <script type="text/javascript">window._trackJs = { token : '<%=htmlWebpackPlugin.options.trackJSToken%>' }; </script>
+       <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
+       <!-- END TRACKJS -->
+       <% } %>
+     
